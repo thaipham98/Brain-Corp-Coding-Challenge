@@ -13,6 +13,9 @@
 using namespace std;
 typedef long long lld;
 
+/*
+ * Matrix Multiplication
+*/
 lld** MatrixMultiply(lld** a, lld** b, int n, int l, int m)
 {
     lld** c = new lld*[n];
@@ -30,6 +33,9 @@ lld** MatrixMultiply(lld** a, lld** b, int n, int l, int m)
     return c;
 }
   
+/*
+ * Matrix Multiplication with Strassen
+*/
 lld** Strassen(lld** a, lld** b, int n, int l, int m)
 {
     if (n == 1 || l == 1 || m == 1) 
@@ -250,6 +256,10 @@ lld** Strassen(lld** a, lld** b, int n, int l, int m)
     return c;
 }
 
+/*
+ *Matrix tranposition
+ *
+*/
 lld** tranpose(lld** a, int n, int m)
 {	
     lld** c = new lld*[m];

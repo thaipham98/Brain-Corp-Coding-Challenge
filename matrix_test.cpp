@@ -1,31 +1,34 @@
-
-
-
-
+// =================== Test File ====================
+// Created by: Thai Pham
+// Date: December 19, 2021
+// File: Test file for Matrix Operation
+// ==================================================
 
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include<string>
-#include<vector>
-#include<map>
-#include<stdexcept>
-#include<sstream>
+#include <string>
+#include <vector>
+#include <map>
+#include <stdexcept>
+#include <sstream>
 #include "matrix_operation.hpp"
 using namespace std;
 
-typedef long long lld;
 typedef void (*FnPtr)();
 
-
-void assert(bool test){
-	if (!test) throw logic_error("assertion failed");
+/*
+ * using name assert for convenience - this is not the same as cassert's assert.
+ * this function throws a logic error if the assertion is false.
+ */
+void assertTrue(bool test){
+  	if (!test) throw logic_error("assertion failed");
 }
 
 /*
-* test matrix multiplication
-*/
+ * test matrix multiplication
+ */
 void test01(){
 	lld** matA;
 	matA = new lld*[3];
@@ -37,7 +40,8 @@ void test01(){
     	matA[1][1] = 5;
     	matA[2][0] = 4;
     	matA[2][1] = 7;
-  
+	
+	cout << "here1" << endl;  
     	lld** matB;
     	matB = new lld*[2];
     	for (int i = 0; i < 2; i++)
@@ -53,7 +57,7 @@ void test01(){
   
     	lld** matC = Strassen(matA, matB, 2, 3, 2);
 	
-	assert(
+	assertTrue(
 		matC[0][0] == 62 &&	
 		matC[0][1] == 39 &&
 		matC[0][2] == 44 &&
@@ -65,8 +69,8 @@ void test01(){
 		matC[2][0] == 92 &&
 		matC[2][1] == 65 &&
 		matC[2][2] == 85 &&
-		matC[2][3] == 75 &&
-	)
+		matC[2][3] == 75 
+	);
 }
 
 /*
@@ -86,15 +90,15 @@ void test02(){
 	matrix[1][1] = 5;
 	matrix[1][2] = 6;
 
-	lld* tranposedMatrix = tranpose(matrix, 2, 3);
-	assert(
+	lld** tranposedMatrix = tranpose(matrix, 2, 3);
+	assertTrue(
 		tranposedMatrix[0][0] == 1 &&
 		tranposedMatrix[0][1] == 4 &&
 		tranposedMatrix[1][0] == 2 &&
 		tranposedMatrix[1][1] == 5 &&
 		tranposedMatrix[2][0] == 3 &&
-		tranposedMatrix[2][1] == 6
-	)	
+		tranposedMatrix[2][1] == 64
+	);	
 }
 
 /*
@@ -122,8 +126,8 @@ int main(int argc, char **argv){
    * includes it below.
   */
   vector<std::pair<string, FnPtr>> tests_ordered = {
-      {"Matrix mul", t01},
-      {"insert/tostring 2", t02},
+      {"Matrix multiplication", test01},
+      {"Matrix tranposition", test02},
       
   };
   map<string, FnPtr> tests;
