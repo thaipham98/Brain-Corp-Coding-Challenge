@@ -97,7 +97,7 @@ void test02(){
 		tranposedMatrix[1][0] == 2 &&
 		tranposedMatrix[1][1] == 5 &&
 		tranposedMatrix[2][0] == 3 &&
-		tranposedMatrix[2][1] == 64
+		tranposedMatrix[2][1] == 6
 	);	
 }
 
