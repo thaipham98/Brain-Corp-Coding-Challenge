@@ -1,5 +1,7 @@
 // =================== Support Code =================
 // Matrix Operation.
+// Created by: Thai Pham
+// Date: December 19, 2021
 //
 // - Header file for Matrix Operation, which includes
 //	1. Matrix Multiplication with Strassens algorithm
